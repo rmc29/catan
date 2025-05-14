@@ -1,4 +1,4 @@
-import { Text, View, Pressable } from "react-native";
+import { Text, View, Button, StyleSheet } from "react-native";
 import { useState } from 'react';
 
 var rolls = new Array(0); //todo should probably make this state (or context?) as well, not just an ordinary global
@@ -21,20 +21,18 @@ function createRolls() {
 			rolls[i]=rolls[swappos];
 			rolls[swappos]=tmp;
 	}
-
 }
-
-/* function Roll({setter}) {
-	if (rolls.length == 0) createRolls();
-	var roll: number = rolls.pop();
-	setter(roll);	
-}
- */
 
 
 // Display components
 function Die({value}) {
-	return ( <Text>{value}</Text>);
+	return ( 
+		<View style={styles.dieview}>
+			<Text style={styles.dietext}>
+				{value}
+			</Text>
+		</View>
+	);
 }
 
 function Total({value}) {
@@ -49,11 +47,8 @@ function RollButton({setter}) {
 		setter(roll);	
 	}
 
-
   return (
-    <Pressable onPress={rollButtonClickHandler}>
-     <Text>Click to roll</Text>
-    </Pressable>
+		<Button  title="Click to roll" onPress={rollButtonClickHandler} style={styles.button} />
   );
 }
  
@@ -61,7 +56,7 @@ function RollButton({setter}) {
 
 	//console.log(roll);
 	if (roll == -1) {
-		return (<> </>);
+		return (<Text> </Text>);
 	}
 	else {
 		var die1:number = (roll % 6) + 1;
@@ -69,9 +64,11 @@ function RollButton({setter}) {
 		
 		
 		return (
-			<>
-			<Die value={die1} />
-			<Die value={die2} />
+		<>
+			<View style={styles.dicecontainer}>
+				<Die value={die1} />
+				<Die value={die2} />
+			</View>
 			<Total value={die1+die2} />
 			</>
 		);
@@ -87,18 +84,50 @@ export default function Index() {
 	
 
   return (
- <View
-      style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-   <DiceDisplay roll={roll}/>
-   <RollButton setter={setroll} /> 
-
-	</View>
+		<View style={styles.mainView}>
+			<DiceDisplay roll={roll}/>
+			<RollButton setter={setroll} /> 
+		</View>
   );
   
 
 }
+const styles = StyleSheet.create({
+	/* button: {
+		borderRadius: 30,
+		color: "ddffdd",
+	}, */ //button doesn't support styling; could use Pressable instead, or just Text or View?
+	
+	dietext: {
+		fontSize: 40,
+		fontWeight: "bold",	
+		textAlign: "center",
+	},
+	
+	dieview: {
+
+		 backgroundColor: "lightgray",
+		  borderWidth: 2,
+		  borderColor: "black",
+		  float: "left",
+		  borderRadius: 10,
+		  width: 60,
+		  margin: 10,
+		  justifyContent: 'center', 
+       alignItems: 'center', 
+	
+	},
+	
+	dicecontainer: {
+		margin: 20,
+		flexDirection:"row",
+		justifyContent: "space-around",
+	},
+		
+
+	mainView: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
+	  }
+});
