@@ -1,8 +1,16 @@
-# Welcome to your Expo app 👋
+# Fair dice app for Catan games 
+This is a simple dice-rolling app to enforce expected probabilities when rolling two six-sided dice for board games like (Settlers of) Catan and its sequels.
 
+Rather than rolling each D6 independently (which can cause an overabundance of 2s or 12s, or a shortage of 6s or 8s), it produces all 36 pairs once each in a random order (and then starts again if needed).
+
+Ths was inspired by a similar Windows Mobile app written by Stephen McIntosh about 25 years ago.
+
+The app is written in React Native and built using [Expo](https://expo.dev). You can either:
+- install the APK on an Android device (I haven't tested it on iOS at all)
+- or download the code and follow the Expo instructions below to build it on a desktop, and then run it in either a browser, an emulator on desktop, or sandboxed on a mobile device using Expo Go.
+
+## Expo instructions
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
-
-## Get started
 
 1. Install dependencies
 
@@ -23,28 +31,5 @@ In the output, you'll find options to open the app in a
 - [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
-
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
-
-## Learn more
-
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## Icon
+The icon is from Flaticon. [Hexagon icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/hexagon)
