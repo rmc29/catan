@@ -80,7 +80,7 @@ function RollButton({setter}) {
  
  }
 
-export default function Index() {
+export default function Catan() {
 	
 	const [roll, setroll] = useState(-1);
 	
