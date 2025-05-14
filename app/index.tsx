@@ -1,7 +1,7 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import { useState } from 'react';
 
-var rolls = new Array(0); //todo should probably make this state as well, not just an ordinary global
+var rolls = new Array(0); //todo should probably make this state (or context?) as well, not just an ordinary global
 
 
 
@@ -10,12 +10,12 @@ function createRolls() {
 	var tmp: number;
 	var swappos: number;
 
-	for (i=0; i<36; i++) {
+	for (i=0; i<=36; i++) {
 		rolls[i] = i; 
 	}
 
 	//shuffle
-	for (i=0; i<36; i++){
+	for (i=0; i<=36; i++){
 			tmp = rolls[i];
 			swappos=Math.floor(Math.random()*36);
 			rolls[i]=rolls[swappos];
@@ -24,12 +24,12 @@ function createRolls() {
 
 }
 
-function Roll({setter}) {
+/* function Roll({setter}) {
 	if (rolls.length == 0) createRolls();
 	var roll: number = rolls.pop();
 	setter(roll);	
 }
-
+ */
 
 
 // Display components
@@ -43,55 +43,49 @@ function Total({value}) {
 
 function RollButton({setter}) {
 	function rollButtonClickHandler() {
-		return(Roll({setter}));
+		
+		if (rolls.length == 0) createRolls();
+		var roll: number = rolls.pop();
+		setter(roll);	
 	}
-	
+
+
   return (
-    <button onClick={rollButtonClickHandler}>
-     Click to roll
-    </button>
+    <Pressable onPress={rollButtonClickHandler}>
+     <Text>Click to roll</Text>
+    </Pressable>
   );
 }
-
-/* function RollButton() {
-
-	function clickHandler() {
-	console.log("clicked");}
-  return (
-    <button onClick={clickHandler}>
-     Click to roll
-    </button>
-  );
-}  */
-
  
  function DiceDisplay({roll}) {
 
-	console.log(roll);
-	var die1:number = (roll % 6) + 1;
-	var die2:number = ((roll - (roll % 6)) / 6) + 1;	
-	
-	
-	return (
- <>
-		<Die value={die1} />
-		<Die value={die2} />
-		<Total value={die1+die2} />
-		</>
-	);
+	//console.log(roll);
+	if (roll == -1) {
+		return (<> </>);
+	}
+	else {
+		var die1:number = (roll % 6) + 1;
+		var die2:number = ((roll - (roll % 6)) / 6) + 1;	
+		
+		
+		return (
+			<>
+			<Die value={die1} />
+			<Die value={die2} />
+			<Total value={die1+die2} />
+			</>
+		);
+	}
  
  }
 
 export default function Index() {
 	
-	const [roll, setroll] = useState(0);
+	const [roll, setroll] = useState(-1);
 	
-	//createRolls();
-	console.log(rolls);
-	//Roll(setroll); //passing in setter for roll state as prop so Roll can change it
-	//setroll(rolls.pop());
+	//console.log(rolls);
+	
 
-		//console.log(roll);
   return (
  <View
       style={{
@@ -106,10 +100,5 @@ export default function Index() {
 	</View>
   );
   
-/*       <DiceDisplay ({roll})/>
- <Die value={die1} />
-		<Die value={die2} />
-		<Total value={die1+die2} />
-		<RollButton setter={setroll} /> 
-				 <button onClick={Roll(setroll)} > Click to roll </button>*/
+
 }
