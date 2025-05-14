@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/catan.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.rmc29.catan"
     },
     "web": {
       "bundler": "metro",
@@ -37,6 +38,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "869f9da6-018a-442f-89dd-b9d0eee0b899"
+      }
+    },
+    "owner": "rmc29"
   }
 }
