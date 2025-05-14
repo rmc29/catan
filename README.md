@@ -7,7 +7,8 @@ Ths was inspired by a similar Windows Mobile app written by Stephen McIntosh abo
 
 The app is written in React Native and built using [Expo](https://expo.dev). You can either:
 - install the APK on an Android device (I haven't tested it on iOS at all)
-- or download the code and follow the Expo instructions below to build it on a desktop, and then run it in either a browser, an emulator on desktop, or sandboxed on a mobile device using Expo Go.
+- or download the code and follow the Expo instructions below to build it on a desktop, and then run it in either a browser, an emulator on desktop, or sandboxed on a mobile device using Expo Go
+- or follow the EAS instructions below to build the APK yourself.
 
 ## Expo instructions
 This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
@@ -24,12 +25,17 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+In the output, you'll find options to open the app in:
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- a [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- an [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- an [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
 - [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
+## EAS instructions
+[Expo Application Services](https://docs.expo.dev/tutorial/eas/introduction/) lets you build an Android APK (or the iOS equivalent) from an Expo project like this one.
+```bash
+eas build --platform android --profile preview
+```
 ## Icon
 The icon is from Flaticon. [Hexagon icons created by Freepik - Flaticon](https://www.flaticon.com/free-icons/hexagon)
