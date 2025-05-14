@@ -5,7 +5,9 @@ Rather than rolling each D6 independently (which can cause an overabundance of 2
 
 Ths was inspired by a similar Windows Mobile app written by Stephen McIntosh about 25 years ago.
 
-The app is written in React Native and built using [Expo](https://expo.dev). You can either:
+The app is written in React Native and built using [Expo](https://expo.dev). The non-boilerplate code is in [app/index.tsx](https://github.com/rmc29/catan/blob/master/app/index.tsx).
+
+If you want to use the app, you can either:
 - install the [APK](https://expo.dev/accounts/rmc29/projects/catan/builds/f7829f18-4169-4078-a9db-7fb97a6eded4) on an Android device (I haven't tested it on iOS at all)
 - or download the code and follow the Expo instructions below to build it on a desktop, and then run it in either a browser, an emulator on desktop, or sandboxed on a mobile device using Expo Go
 - or follow the EAS instructions below to build the APK yourself.
