@@ -1,4 +1,4 @@
-import { Text, View, Button, StyleSheet } from "react-native";
+import { Text, View, Button, Pressable, StyleSheet } from "react-native";
 import { useState } from 'react';
 
 var rolls = new Array(0); //todo should probably make this state (or context?) as well, not just an ordinary global
@@ -48,7 +48,11 @@ function RollButton({setter}) {
 	}
 
   return (
-		<Button  title="Click to roll" onPress={rollButtonClickHandler} style={styles.button} />
+		<Pressable   onPress={rollButtonClickHandler}>
+			<View		style={styles.button} >
+				<Text>Click to roll</Text>
+			</View>
+		</Pressable>
   );
 }
  
@@ -85,6 +89,7 @@ export default function Index() {
 
   return (
 		<View style={styles.mainView}>
+		<Text>Fair dice app for Catan games</Text>
 			<DiceDisplay roll={roll}/>
 			<RollButton setter={setroll} /> 
 		</View>
@@ -93,10 +98,17 @@ export default function Index() {
 
 }
 const styles = StyleSheet.create({
-	/* button: {
+	button: {
 		borderRadius: 30,
-		color: "ddffdd",
-	}, */ //button doesn't support styling; could use Pressable instead, or just Text or View?
+
+		 borderWidth: 1,
+		backgroundColor: "lightgray",
+    borderRadius: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+	boxShadow: "darkgrey 2px 2px",
+	marginTop: 20,
+	}, 
 	
 	dietext: {
 		fontSize: 40,
