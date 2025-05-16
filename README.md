@@ -3,7 +3,7 @@ This is a simple dice-rolling app to enforce expected probabilities when rolling
 
 Rather than rolling each D6 independently (which can cause an overabundance of 2s or 12s, or a shortage of 6s or 8s), it produces all 36 possible pairs once each in a random order (and then starts again if needed).
 
-Ths was inspired by a similar Windows Mobile app written by Stephen McIntosh about 25 years ago.
+Ths was inspired by a similar Nokia Communicator app written by Stephen McIntosh about 25 years ago.
 
 The app is written in React Native and built using [Expo](https://expo.dev). The non-boilerplate code is in [app/index.tsx](https://github.com/rmc29/catan/blob/master/app/index.tsx).
 
